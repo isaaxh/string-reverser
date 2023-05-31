@@ -1,4 +1,4 @@
-# string-reverser
+# String Reverser
 
 In this project i will create a small string reverser project. The app will take in a string and print it in the backward order. 
 
