@@ -6,17 +6,29 @@ const App = () => {
   const [output, setOutput] = useState<string>();
   const [stringArray, setStringArray] = useState<string[] | undefined>([]);
 
-  const reverseString = (strArr: string[]) => {
-    console.log(strArr);
+  const reverseString = (strArr: string[] | undefined) => {
+    const strReversed: string[] = [];
+
+    strArr?.forEach((item) => {
+      strReversed.unshift(item);
+    });
+
+    displayOutput(strReversed);
+  };
+
+  const displayOutput = (strArr: string[]) => {
+    const finalStr = strArr.join(" ");
+
+    setOutput(finalStr);
   };
 
   const handleBtnClick = (inputText: string | undefined) => {
-    const newArray = inputText?.split("");
+    const newArray = inputText?.split(" ");
     setStringArray(newArray);
   };
 
   useEffect(() => {
-    console.log(stringArray);
+    reverseString(stringArray);
   }, [stringArray]);
 
   return (
